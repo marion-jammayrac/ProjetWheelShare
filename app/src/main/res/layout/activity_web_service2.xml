@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/webServicesRecycler"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ImageWebServ"
+        android:layout_width="91dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="@string/image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/NomWebServ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/titre_informations"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ImageWebServ"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AddresseWebServ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/titre_informations"
+        app:layout_constraintStart_toStartOf="@+id/NomWebServ"
+        app:layout_constraintTop_toBottomOf="@+id/NomWebServ" />
+
+    <TextView
+        android:id="@+id/MailWebServ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/titre_informations"
+        app:layout_constraintStart_toStartOf="@+id/AddresseWebServ"
+        app:layout_constraintTop_toBottomOf="@+id/AddresseWebServ" />
+</androidx.constraintlayout.widget.ConstraintLayout>
