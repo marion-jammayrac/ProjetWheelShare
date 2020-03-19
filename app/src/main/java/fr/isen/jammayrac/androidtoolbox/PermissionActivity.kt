@@ -2,6 +2,7 @@ package fr.isen.jammayrac.androidtoolbox
 
 import android.Manifest
 import android.app.Activity
+import android.content.ContentResolver
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,6 +10,7 @@ import android.graphics.Bitmap
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -19,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_permission.*
 class PermissionActivity : AppCompatActivity() {
 
     lateinit var currentPhotoPath: String
+    val contact = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,10 +44,10 @@ class PermissionActivity : AppCompatActivity() {
             else{
                 //system OS is < Marshmallow
                 showPictureDialog()
-            }        }
+            }
+        }
 
-        contactRecycler.adapter = ContactAdapteur(listOf("Juliette", "Melvin", "Moi"))
-        contactRecycler.layoutManager = LinearLayoutManager( this)
+        loadContacts()
 
         //un adapteur permet de chercher chaque cellule (maj, recyclage...)
         //optimise au maximum la gestion de l'affichage de chaque cellule.
@@ -110,6 +113,46 @@ class PermissionActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
             photoquicasselescouille.setImageURI(data?.data) //permet d'eviter les pointeurs sur nuls
+        }else if (resultCode == Activity.RESULT_OK && requestCode == PERMISSION_CODE) {
+            var bmp = data?.extras?.get("data") as Bitmap
+            photoquicasselescouille.setImageBitmap(bmp)
         }
+    }
+
+    private fun loadContacts() {
+        var builder = StringBuilder()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(
+                Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS),
+                1)
+            //callback onRequestPermissionsResult
+        } else {
+            getContacts()
+            contactRecycler.adapter = ContactAdapteur(contact.sorted())
+            contactRecycler.layoutManager = LinearLayoutManager( this)
+        }
+    }
+
+    private fun getContacts(){
+        val resolver: ContentResolver = contentResolver;
+        val cursor = resolver.query(
+            ContactsContract.Contacts.CONTENT_URI,
+            null,
+            null,
+            null,
+            null
+        )
+
+        if (cursor!!.count > 0) {
+            while (cursor.moveToNext()) {
+                val name =
+                    cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                contact.add("  Nom : $name")
+            }
+        } else {
+            Toast.makeText(applicationContext, "No contacts available!", Toast.LENGTH_SHORT).show()
+        }
+        cursor.close()
     }
 }

@@ -28,6 +28,11 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, SauvegardeActivity::class.java) //f
             startActivity(intent)
         }
+        WebServicebutton.setOnClickListener() {
+            val intent = Intent(this, WebServiceActivity::class.java) //f
+            startActivity(intent)
+        }
+
         PermissionButton.setOnClickListener() {
             val intent = Intent(this, PermissionActivity::class.java) //f
             startActivity(intent)

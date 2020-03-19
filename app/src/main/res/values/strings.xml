@@ -37,4 +37,7 @@
     <string name="ContactTexte" />
     <string name="ContactText">Contacts de Mario Jammayrac</string>
     <string name="ContactsText">Contact de MArio JAMMAYRAC</string>
+    <string name="image">Image</string>
+    <string name="titre_informations">Informations</string>
+    <string name="textWebServ">WebService</string>
 </resources>
