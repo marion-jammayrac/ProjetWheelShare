@@ -26,7 +26,7 @@ class WebServiceActivity : AppCompatActivity() {
         var Randomuser = RandomUser()
         val stringRequest = JsonObjectRequest(
             Request.Method.GET,
-            "https://randomuser.me/api/?inc=name%2Cpicture%2Clocation%2Cemail&noinfo=&nat=fr&format=pretty&results=10",
+            "https://randomuser.me/api/?inc=name%2Cpicture%2Clocation%2Cemail&noinfo=&nat=fr&format=pretty&results=15",
             null,
             Response.Listener { response ->
                 val gson = Gson()

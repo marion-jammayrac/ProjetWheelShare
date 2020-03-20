@@ -33,6 +33,11 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        Blebutton.setOnClickListener() {
+            val intent = Intent(this, BleActivity::class.java) //f
+            startActivity(intent)
+        }
+
         PermissionButton.setOnClickListener() {
             val intent = Intent(this, PermissionActivity::class.java) //f
             startActivity(intent)

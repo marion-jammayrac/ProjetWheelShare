@@ -40,4 +40,11 @@
     <string name="image">Image</string>
     <string name="titre_informations">Informations</string>
     <string name="textWebServ">WebService</string>
+    <string name="TextMenu">Menu Stylé :</string>
+    <string name="TextduMenu">Appli du Swag</string>
+    <string name="Bluetooth" />
+    <string name="bletext">Bluetooth</string>
+    <string name="TexteduMenu">Menu de Mario</string>
+    <string name="BleTxt">Lancer Scan Ble</string>
+    <string name="BleTextFailed">Erreur</string>
 </resources>

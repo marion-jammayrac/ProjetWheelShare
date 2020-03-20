@@ -1,8 +1,6 @@
 package fr.isen.jammayrac.androidtoolbox
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_web_service2.view.*
-import java.util.*
 
 class WebService2 (private val users: RandomUser, val context: Context) :
     RecyclerView.Adapter<WebService2.WebHolder>() {

@@ -4,19 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".HomeActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/BonjourTexte"
+        android:text="@string/TexteduMenu"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.223" />
 
     <ImageButton
         android:id="@+id/SauvegardeButton"
@@ -29,8 +31,8 @@
         app:layout_constraintHorizontal_bias="0.787"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.149"
-        app:srcCompat="@android:drawable/ic_menu_save" />
+        app:layout_constraintVertical_bias="0.113"
+        app:srcCompat="@android:drawable/checkbox_on_background" />
 
     <ImageButton
         android:id="@+id/PermissionButton"
@@ -42,15 +44,16 @@
         app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.147"
-        app:srcCompat="@android:drawable/ic_menu_call" />
+        app:layout_constraintVertical_bias="0.115"
+        app:srcCompat="@android:drawable/editbox_background_normal" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="170dp"
-        android:layout_height="101dp"
+        android:layout_width="106dp"
+        android:layout_height="75dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.255"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoisenmediterranee" />
@@ -79,13 +82,13 @@
         android:id="@+id/WebServicebutton"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:background="#FF0000"
         android:tint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/SauvegardeButton"
         app:layout_constraintStart_toStartOf="@+id/SauvegardeButton"
         app:layout_constraintTop_toBottomOf="@+id/SauvegardeButton"
-        app:srcCompat="@android:drawable/stat_sys_download" />
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
     <ImageButton
         android:id="@+id/CycleDeVieButton"
@@ -98,7 +101,7 @@
         app:layout_constraintStart_toStartOf="@+id/PermissionButton"
         app:layout_constraintTop_toBottomOf="@+id/PermissionButton"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/stat_notify_chat" />
+        app:srcCompat="@android:drawable/ic_media_play" />
 
     <TextView
         android:id="@+id/textView5"
@@ -122,12 +125,38 @@
 
     <Button
         android:id="@+id/Decobutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="127dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
         android:text="@string/idDeco"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.523" />
+
+    <Button
+        android:id="@+id/Blebutton"
+        android:layout_width="117dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/bletext"
+        app:layout_constraintBottom_toBottomOf="@+id/Decobutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toEndOf="@+id/Decobutton"
+        app:layout_constraintTop_toTopOf="@+id/Decobutton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="147dp"
+        android:layout_height="125dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/zfea" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
