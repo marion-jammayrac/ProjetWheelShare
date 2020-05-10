@@ -47,4 +47,11 @@
     <string name="TexteduMenu">Menu de Mario</string>
     <string name="BleTxt">Lancer Scan Ble</string>
     <string name="BleTextFailed">Erreur</string>
+    <string name="textMenu">Bienvenu !</string>
+    <string name="textLogin">Bienvenue !</string>
+    <string name="Menutt">Wheel-Share vous propose :</string>
+    <string name="Mapsbutton">Maps</string>
+    <string name="chatbutton">Chat</string>
+    <string name="MenuTxt">Welcome to your fav app :</string>
+    <string name="title_activity_maps3">Map</string>
 </resources>

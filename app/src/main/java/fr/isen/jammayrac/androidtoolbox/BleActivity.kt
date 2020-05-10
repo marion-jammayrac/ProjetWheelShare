@@ -27,7 +27,7 @@ class BleActivity : AppCompatActivity() {
     private val isBLEEnabled: Boolean
         get() = bluetoothAdapter?.isEnabled == true
 
-   // private val REQUEST_ENABLE_BT = 1
+    // private val REQUEST_ENABLE_BT = 1
     private var mScanning: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +59,7 @@ class BleActivity : AppCompatActivity() {
         progressBar.visibility = View.VISIBLE
         dividerBle.visibility = View.GONE
         handler = Handler()
-            scanLeDevice(true)
+        scanLeDevice(true)
     }
 
     private fun scanLeDevice(enable: Boolean) {
@@ -85,15 +85,14 @@ class BleActivity : AppCompatActivity() {
             Log.w("BleActivity", "${result.device}")
             deviceList += Device(result.device.name, result.device.address, result.rssi)
             runOnUiThread {
-                 dividerBle.visibility = View.GONE
+                dividerBle.visibility = View.GONE
             }
         }
     }
 
-    private fun addDeviceToList(result: ScanResult){
-        for (i in 0 until deviceList.size){
+    private fun addDeviceToList(result: ScanResult) {
+        for (i in 0 until deviceList.size) {
             if (result.device.address == deviceList[i].address) {
-
             } else {
                 deviceList += Device(result.device.name, result.device.address, result.rssi)
             }
@@ -114,7 +113,7 @@ class BleActivity : AppCompatActivity() {
     }
 
     data class Device(
-        val name: String,
+        val name: String?,
         val address: String,
         val rssi: Int
     )

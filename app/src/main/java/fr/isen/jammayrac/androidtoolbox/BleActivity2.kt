@@ -1,6 +1,5 @@
 package fr.isen.jammayrac.androidtoolbox
 
-import android.bluetooth.BluetoothDevice
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

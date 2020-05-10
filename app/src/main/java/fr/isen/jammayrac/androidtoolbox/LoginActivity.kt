@@ -26,8 +26,8 @@ class LoginActivity : AppCompatActivity() {
         Validatebutton.setOnClickListener() {
             // Toast.makeText(applicationContext,"Identifiant : ${editIdentifiant.text.toString()}",Toast.LENGTH_SHORT).show()
             // test avec le nom identif qui s'affiche.
-            if (editIdentifiant.text.toString() == "admin") {
-                if (editMotDePasse.text.toString() == "123") {
+            if (editIdentifiant.text.toString() == "lesBG") {
+                if (editMotDePasse.text.toString() == "Potins") {
                     val idConnexion = editIdentifiant.text.toString().trim()
                     val mdp = editMotDePasse.text.toString().trim()
 

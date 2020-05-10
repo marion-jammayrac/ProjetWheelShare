@@ -13,10 +13,7 @@ class HomeActivity : AppCompatActivity() {
         val SharedPreferences = getSharedPreferences("ID_ID", Context.MODE_PRIVATE)
 
         setContentView(R.layout.activity_home)
-        CycleDeVieButton.setOnClickListener() {
-            val intent = Intent(this, CycleDeVieActivity::class.java) //f
-            startActivity(intent)
-        }
+
         Decobutton.setOnClickListener() {
             val intent = Intent(this, LoginActivity::class.java) //f
             startActivity(intent)
@@ -24,24 +21,21 @@ class HomeActivity : AppCompatActivity() {
             editor.clear()
             editor.apply()
         }
-        SauvegardeButton.setOnClickListener() {
-            val intent = Intent(this, SauvegardeActivity::class.java) //f
-            startActivity(intent)
-        }
-        WebServicebutton.setOnClickListener() {
-            val intent = Intent(this, WebServiceActivity::class.java) //f
-            startActivity(intent)
-        }
+       // SauvegardeButton.setOnClickListener() {
+        //    val intent = Intent(this, SauvegardeActivity::class.java) //f
+        //    startActivity(intent)
+        //}
 
         Blebutton.setOnClickListener() {
             val intent = Intent(this, BleActivity::class.java) //f
             startActivity(intent)
         }
 
-        PermissionButton.setOnClickListener() {
-            val intent = Intent(this, PermissionActivity::class.java) //f
+        MapsButton.setOnClickListener() {
+            val intent = Intent(this, MapsActivity::class.java) //f
             startActivity(intent)
         }
+        
     }
 }
 // on create on start on resume

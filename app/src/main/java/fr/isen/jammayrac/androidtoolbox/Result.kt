@@ -1,4 +1,4 @@
-package fr.isen.jammayrac.androidtoolbox.data
+package fr.isen.jammayrac.androidtoolbox
 
 /**
  * A generic class that holds a value with its loading status.
