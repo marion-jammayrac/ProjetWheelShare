@@ -2,15 +2,12 @@ package fr.isen.jammayrac.androidtoolbox
 
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.android.gms.common.internal.service.Common
-
+import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -19,30 +16,40 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import android.location.Location
+import android.widget.Toast
+import fr.isen.jammayrac.androidtoolbox.data.model.ViewPlace
+import fr.isen.jammayrac.androidtoolbox.model.RootObject
+import kotlinx.android.synthetic.main.activity_maps2.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.lang.StringBuilder
 
-class MapsActivity3 : AppCompatActivity(), OnMapReadyCallback {
+
+class MapsActivity2 : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var mLastLocation: Location
 
-    private var latitude: Double=0.toDouble()
-    private var longitude: Double=0.toDouble()
+    private var latitude:Double=0.toDouble()
+    private var longitude:Double=0.toDouble()
+
+    private lateinit var mLastLocation: Location
     private var mMarker: Marker?=null
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     lateinit var locationRequest: LocationRequest
     lateinit var locationCallback: LocationCallback
 
-    lateinit var mService: IGoogleApiService
+    lateinit var mService: IGoogleAPIServices
     internal lateinit var currentPlace:RootObject
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
-
+        setContentView(R.layout.activity_maps2)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         mService = Common.googleApiService
@@ -62,48 +69,19 @@ class MapsActivity3 : AppCompatActivity(), OnMapReadyCallback {
             fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper())
         }
 
-
-
-        bottom_navigation.setOnNavigationItemSelectedListener { item ->
+        botton_navigation_view.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
-                R.id.action_pharmacy -> {
+                R.id.action_market -> {
                     // HitApi(this@MapsActivity, latitude, longitude, 10000, "pharmacy").execute()
                     nearbyPlace("pharmacy")
                 }
 
-                R.id.action_hospital -> {
-                    // HitApi(this@MapsActivity, latitude, longitude, 10000, "pharmacy").execute()
-                    nearbyPlace("hospital")
-                }
             }
             true
         }
-
-        profile_menu_maps.setOnClickListener{
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-        }
-
-        home_menu_maps.setOnClickListener{
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        }
-
-        send_menu_maps.setOnClickListener{
-            val intent = Intent(this, SendPrescriptionActivity::class.java)
-            startActivity(intent)
-        }
-
-        chat_menu_maps.setOnClickListener{
-            val intent = Intent(this, LatestChatActivity::class.java)
-            startActivity(intent)
-        }
-
     }
 
-    ///////////////////////// Show nearby pharmacy ///////////////////////////
-
-    private fun nearbyPlace(typePlace: String){
+    private fun nearbyPlace(typePlace: String) {
         mMap.clear()
         val url = getUrl(latitude, longitude, typePlace)
         mService.getNearbyPlaces(url)
@@ -122,20 +100,12 @@ class MapsActivity3 : AppCompatActivity(), OnMapReadyCallback {
                             markerOptions.position(latLng)
                             markerOptions.title(placeName)
 
-                            if(typePlace == "pharmacy")
-                                markerOptions.icon(
-                                    BitmapDescriptorFactory.fromResource(
-                                        R.drawable.location_green
-                                    ))
-                            else if(typePlace == "hospital")
-                                markerOptions.icon(
-                                    BitmapDescriptorFactory.fromResource(
-                                        R.drawable.hospital_red
-                                    ))
+                            if(typePlace == "market")
+                                markerOptions.icon(BitmapDescriptorFactory.fromResource(
+                                    R.drawable.roundbutton
+                                ))
                             else
-                                markerOptions.icon(
-                                    BitmapDescriptorFactory.defaultMarker(
-                                        BitmapDescriptorFactory.HUE_BLUE))
+                                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
 
                             markerOptions.snippet(i.toString())
 
@@ -152,22 +122,10 @@ class MapsActivity3 : AppCompatActivity(), OnMapReadyCallback {
             })
     }
 
-    private fun getUrl(latitude: Double, longitude: Double, typePlace: String): String {
-        var googlePlaceUrl = StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json")
-        googlePlaceUrl.append("?location=$latitude,$longitude")
-        googlePlaceUrl.append("&radius=10000&type=$typePlace")
-        googlePlaceUrl.append("&key=AIzaSyAOgLYcZxKFUyjrFvv58zNg6_AViWAFwpc")
-
-        return googlePlaceUrl.toString()
-    }
-
-
-
-
     private fun buildLocationCallback() {
         locationCallback = object : LocationCallback(){
-            override fun onLocationResult(p0: LocationResult?) {
-                mLastLocation = p0!!.locations[p0.locations.size-1] //Last location
+            override fun onLocationResult(pO: LocationResult?) {
+                mLastLocation = pO!!.locations.get(pO!!.locations.size-1)
 
                 if(mMarker != null){
                     mMarker!!.remove()
@@ -242,6 +200,15 @@ class MapsActivity3 : AppCompatActivity(), OnMapReadyCallback {
         super.onStop()
     }
 
+    private fun getUrl(latitude: Double, longitude: Double, typePlace: String): String {
+        var googlePlaceUrl = StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json")
+        googlePlaceUrl.append("?location=$latitude,$longitude")
+        googlePlaceUrl.append("&radius=10000&type=$typePlace")
+        googlePlaceUrl.append("&key=AIzaSyAOgLYcZxKFUyjrFvv58zNg6_AViWAFwpc")
+
+        return googlePlaceUrl.toString()
+    }
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
@@ -253,10 +220,9 @@ class MapsActivity3 : AppCompatActivity(), OnMapReadyCallback {
         mMap.setOnMarkerClickListener { marker ->
             if(marker.snippet != null) {
                 Common.currentResult = currentPlace.results!![Integer.parseInt(marker.snippet)]
-                startActivity(Intent(this@MapsActivity, ViewPlace::class.java))
+                startActivity(Intent(this@MapsActivity2, ViewPlace::class.java))
             }
             true
         }
     }
 }
-

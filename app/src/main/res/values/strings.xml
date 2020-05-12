@@ -54,4 +54,10 @@
     <string name="chatbutton">Chat</string>
     <string name="MenuTxt">Welcome to your fav app :</string>
     <string name="title_activity_maps3">Map</string>
+    <string name="title_activity_maps2">Map</string>
+    <string name="place_name">places_name</string>
+    <string name="place_address">place_address</string>
+    <string name="place_hours">place_hours</string>
+    <string name="showOnMap">showOnMap</string>
+    <string name="title_activity_view_directions">Map</string>
 </resources>

@@ -43,10 +43,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity3"
-            android:label="@string/title_activity_maps3"></activity>
-        <activity android:name=".MapsActivity2" />
-        <activity android:name=".MapsActivty2" />
+            android:name=".ViewDirections"
+            android:label="@string/title_activity_view_directions"></activity>
+        <activity
+            android:name=".MapsActivity2"
+            android:label="@string/title_activity_maps2" />
         <activity android:name=".MapsActivity" />
         <activity android:name=".BleActivity2" />
         <activity android:name=".BleActivity" />

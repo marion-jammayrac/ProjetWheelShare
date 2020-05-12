@@ -87,17 +87,6 @@
         app:layout_constraintTop_toTopOf="@+id/Blebutton"
         app:srcCompat="@drawable/sanstitre" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="409dp"
-        android:layout_height="3dp"
-        android:background="#77B5FE"
-        app:layout_constraintBottom_toTopOf="@+id/MapsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.081" />
-
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
@@ -108,7 +97,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ToText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/divider" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
         android:id="@+id/ToText"

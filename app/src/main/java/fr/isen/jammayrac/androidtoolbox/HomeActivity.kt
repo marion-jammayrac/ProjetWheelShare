@@ -32,7 +32,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         MapsButton.setOnClickListener() {
-            val intent = Intent(this, MapsActivity::class.java) //f
+            val intent = Intent(this, MapsActivity2::class.java) //f
             startActivity(intent)
         }
         
