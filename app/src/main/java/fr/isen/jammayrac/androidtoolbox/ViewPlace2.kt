@@ -1,28 +1,25 @@
-package fr.isen.jammayrac.androidtoolbox.data.model
+package fr.isen.jammayrac.androidtoolbox
 
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
-import fr.isen.jammayrac.androidtoolbox.Common
-import fr.isen.jammayrac.androidtoolbox.IGoogleAPIServices
-import fr.isen.jammayrac.androidtoolbox.R
 import fr.isen.jammayrac.androidtoolbox.model.PlaceDetail
-import kotlinx.android.synthetic.main.activity_view_place.*
+import kotlinx.android.synthetic.main.activity_view_place2.*
 import retrofit2.Call
 import retrofit2.Response
 
-class ViewPlace : AppCompatActivity() {
+class ViewPlace2 : AppCompatActivity() {
 
     internal lateinit var mService: IGoogleAPIServices
     var mPlace : PlaceDetail?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_place)
+        setContentView(R.layout.activity_view_place2)
 
         mService = Common.googleApiService
 
@@ -31,9 +28,9 @@ class ViewPlace : AppCompatActivity() {
         place_hours.text = ""
 
 
-        btn_show_on_map.setOnClickListener {
-            val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse(mPlace!!.result!!.url))
-            startActivity(mapIntent)
+        btn_view_direction.setOnClickListener {
+            val viewDirections = Intent(this@ViewPlace2, ViewDirections::class.java)
+            startActivity(viewDirections)
         }
 
 

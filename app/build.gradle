@@ -14,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -47,6 +48,16 @@ dependencies {
     implementation 'com.google.android.gms:play-services-places:17.0.0'
     implementation 'com.google.okhttp:okhttp:20120626'
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.github.d-max:spots-dialog:0.7@aar'
+
+    implementation 'org.jetbrains.anko:anko-sdk15:0.8.2'
+    implementation 'com.beust:klaxon:0.30'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+
+
     // implementation 'com.android.support:appcompact-7:26.1.0'
     // implementation 'com.google.android.gms:play-services:17.0.0'
 

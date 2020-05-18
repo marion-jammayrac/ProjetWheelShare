@@ -18,7 +18,6 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import android.location.Location
 import android.widget.Toast
-import fr.isen.jammayrac.androidtoolbox.data.model.ViewPlace
 import fr.isen.jammayrac.androidtoolbox.model.RootObject
 import kotlinx.android.synthetic.main.activity_maps2.*
 import retrofit2.Call
@@ -73,6 +72,14 @@ class MapsActivity2 : AppCompatActivity(), OnMapReadyCallback {
             when(item.itemId) {
                 R.id.action_market -> {
                     // HitApi(this@MapsActivity, latitude, longitude, 10000, "pharmacy").execute()
+                    nearbyPlace("restaurant")
+                }
+                R.id.action_parking -> {
+                    // HitApi(this@MapsActivity, latitude, longitude, 10000, "pharmacy").execute()
+                    nearbyPlace("parking")
+                }
+                R.id.action_pharmacy -> {
+                    // HitApi(this@MapsActivity, latitude, longitude, 10000, "pharmacy").execute()
                     nearbyPlace("pharmacy")
                 }
 
@@ -125,7 +132,7 @@ class MapsActivity2 : AppCompatActivity(), OnMapReadyCallback {
     private fun buildLocationCallback() {
         locationCallback = object : LocationCallback(){
             override fun onLocationResult(pO: LocationResult?) {
-                mLastLocation = pO!!.locations.get(pO!!.locations.size-1)
+                mLastLocation = pO!!.lastLocation
 
                 if(mMarker != null){
                     mMarker!!.remove()
@@ -204,7 +211,7 @@ class MapsActivity2 : AppCompatActivity(), OnMapReadyCallback {
         var googlePlaceUrl = StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json")
         googlePlaceUrl.append("?location=$latitude,$longitude")
         googlePlaceUrl.append("&radius=10000&type=$typePlace")
-        googlePlaceUrl.append("&key=AIzaSyAOgLYcZxKFUyjrFvv58zNg6_AViWAFwpc")
+        googlePlaceUrl.append("&key=AIzaSyBA63q0u_yHjwDnbccIJzlsYpn8zeyA7DI")
 
         return googlePlaceUrl.toString()
     }
@@ -220,7 +227,7 @@ class MapsActivity2 : AppCompatActivity(), OnMapReadyCallback {
         mMap.setOnMarkerClickListener { marker ->
             if(marker.snippet != null) {
                 Common.currentResult = currentPlace.results!![Integer.parseInt(marker.snippet)]
-                startActivity(Intent(this@MapsActivity2, ViewPlace::class.java))
+                startActivity(Intent(this@MapsActivity2, ViewPlace2::class.java))
             }
             true
         }

@@ -56,46 +56,25 @@
         app:layout_constraintTop_toBottomOf="@+id/PermissionText"
         app:layout_constraintVertical_bias="0.875" />
 
-    <Button
-        android:id="@+id/Blebutton"
-        android:layout_width="117dp"
-        android:layout_height="53dp"
-        android:layout_marginEnd="15dp"
-        android:text="@string/bletext"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="188dp"
         android:layout_height="136dp"
         android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/wheelshare" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/Blebutton"
-        app:layout_constraintEnd_toStartOf="@+id/Blebutton"
-        app:layout_constraintTop_toTopOf="@+id/Blebutton"
-        app:srcCompat="@drawable/sanstitre" />
-
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/fromText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="From"
+        android:text="14 RUE DANTON, TOULON"
         app:layout_constraintBottom_toTopOf="@+id/ToText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.277"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -106,8 +85,30 @@
         android:layout_marginBottom="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="To"
+        android:text="ISEN TOULON"
         app:layout_constraintBottom_toTopOf="@+id/MapsButton"
-        app:layout_constraintStart_toStartOf="@+id/editText" />
+        app:layout_constraintStart_toStartOf="@+id/fromText" />
+
+    <ImageButton
+        android:id="@+id/searchingButton"
+        android:layout_width="73dp"
+        android:layout_height="77dp"
+        android:background="@drawable/roundbutton"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/ToText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fromText"
+        app:layout_constraintTop_toTopOf="@+id/fromText"
+        app:srcCompat="@drawable/places_ic_search" />
+
+    <ImageView
+        android:id="@+id/reglages_buton"
+        android:layout_width="74dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sanstitre" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

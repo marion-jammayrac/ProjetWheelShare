@@ -1,12 +1,25 @@
 package fr.isen.jammayrac.androidtoolbox
 
+import android.app.Activity
+import android.bluetooth.*
+import android.bluetooth.le.ScanCallback
+import android.bluetooth.le.ScanResult
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
+import android.view.View
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
+import kotlinx.android.synthetic.main.activity_bluethooth.*
 import kotlinx.android.synthetic.main.activity_home.*
 
+
 class HomeActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,21 +34,27 @@ class HomeActivity : AppCompatActivity() {
             editor.clear()
             editor.apply()
         }
-       // SauvegardeButton.setOnClickListener() {
-        //    val intent = Intent(this, SauvegardeActivity::class.java) //f
-        //    startActivity(intent)
-        //}
 
-        Blebutton.setOnClickListener() {
-            val intent = Intent(this, BleActivity::class.java) //f
-            startActivity(intent)
-        }
 
         MapsButton.setOnClickListener() {
             val intent = Intent(this, MapsActivity2::class.java) //f
             startActivity(intent)
         }
-        
+
+        reglages_buton.setOnClickListener() {
+            val intent = Intent(this, ReglagesActivity::class.java) //f
+            startActivity(intent)
+        }
+
+        searchingButton.setOnClickListener {
+            val intent = Intent(this, MapsActivity3::class.java) //f
+            intent.putExtra("From",fromText.text.toString())
+            intent.putExtra("To",ToText.text.toString())
+            startActivity(intent)
+
+        }
+
     }
+
 }
 // on create on start on resume

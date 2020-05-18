@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_pin"
+        android:enabled="true"
+        android:icon="@drawable/pin_logo2"
+        android:title="@string/CAREFUL"
+        android:iconTint="#FF0000"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_pin2"
+        android:enabled="true"
+        android:icon="@drawable/pin_logo2"
+        android:title="@string/DANGER"
+        android:iconTint="#FFA500"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_pin3"
+        android:enabled="true"
+        android:icon="@drawable/pin_logo2"
+        android:title="@string/STOP"
+        android:iconTint="#000000"
+        app:showAsAction="ifRoom"/>
+
+
+</menu>

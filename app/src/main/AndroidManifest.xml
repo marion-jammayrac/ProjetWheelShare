@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fr.isen.jammayrac.androidtoolbox">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -29,7 +28,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ReglagesActivity"></activity>
+        <activity android:name=".BluethoothActivity" />
+        <activity android:name=".BluethoothDetails" />
+        <activity android:name=".bluethoothActivity" />
+        <activity android:name=".BleActivity" />
+        <activity android:name=".BleActivity3" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,14 +47,22 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".MapsActivity3"
+            android:label="@string/title_activity_maps3" />
+        <activity android:name=".ViewPlace2" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
             android:name=".ViewDirections"
-            android:label="@string/title_activity_view_directions"></activity>
+            android:label="@string/title_activity_view_directions" />
         <activity
             android:name=".MapsActivity2"
             android:label="@string/title_activity_maps2" />
-        <activity android:name=".MapsActivity" />
-        <activity android:name=".BleActivity2" />
-        <activity android:name=".BleActivity" />
+        <activity android:name=".BluetoothActivity" />
+        <activity android:name=".BluetoothDetails" />
         <activity android:name=".SauvegardeActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>

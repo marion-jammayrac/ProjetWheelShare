@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-            android:id="@+id/action_market"
-            android:enabled="true"
-            android:title="Market"
-            android:icon="@drawable/roundbutton"
-            app:showAsAction="ifRoom">
 
-    </item>
+    <item
+        android:id="@+id/action_pharmacy"
+        android:enabled="true"
+        android:icon="@drawable/pharmacy_logo"
+        android:title="@string/pharmacyShow"
+        android:iconTint="#09D309"
+        app:showAsAction="ifRoom"/>
+
+
+    <item
+        android:id="@+id/action_market"
+        android:enabled="true"
+        android:icon="@drawable/market_logo"
+        android:title="@string/market"
+        android:iconTint="#E20505"
+        app:showAsAction="ifRoom"/>
+
+
+
+    <item
+        android:id="@+id/action_parking"
+        android:enabled="true"
+        android:icon="@drawable/parking_logo"
+        android:title="@string/parkingMarker"
+        android:iconTint="#E20505"
+        app:showAsAction="ifRoom"/>
+
+
 
 </menu>

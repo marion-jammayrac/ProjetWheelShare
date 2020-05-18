@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".data.model.ViewPlace">
+    tools:context=".ViewPlace2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,10 +56,10 @@
                 android:max="5" />
 
             <Button
-                android:id="@+id/btn_show_on_map"
+                android:id="@+id/btn_view_direction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/showOnMap"
+                android:text="@string/Viewdirection"
                 style="@style/Widget.AppCompat.Button.Colored" />
 
 

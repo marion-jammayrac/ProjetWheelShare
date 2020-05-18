@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
         val savedIdentifiant = SharedPreferences.getString("ID", "")
         val savedMotDePasse = SharedPreferences.getString("MDP", "")
-        if (savedIdentifiant == "admin" && savedMotDePasse == "123") {
+        if (savedIdentifiant == "lesBG" && savedMotDePasse == "Potins") {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
