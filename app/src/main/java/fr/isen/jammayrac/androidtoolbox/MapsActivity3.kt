@@ -76,6 +76,9 @@ class MapsActivity3() : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        flecheDroite.visibility = View.INVISIBLE
+        flecheGauche.visibility = View.INVISIBLE
+
         mService = Common.googleApiService
 
         if (checkLocationPermission()) {
@@ -373,7 +376,7 @@ class MapsActivity3() : AppCompatActivity(), OnMapReadyCallback {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
             Log.w("BLE", "${result.device}")
-            if (result.device.address == "E9:75:0F:B7:7D:B3") {
+            if (result.device.address == "E6:09:D8:26:C4:10") {
                 bluetoothGatt = result.device.connectGatt(applicationContext, true, gattCallback)
                 scanLeDevice(false)
             }
@@ -497,25 +500,37 @@ class MapsActivity3() : AppCompatActivity(), OnMapReadyCallback {
 
                     if(byteArrayToHexString(gatt.services[2].characteristics[1].value)=="54"){
                         Toast.makeText(applicationContext,"BLE CONNECTED/ CALIBRATION" ,Toast.LENGTH_SHORT).show()
+                        //flecheDroite.visibility = View.INVISIBLE
+                        //flecheGauche.visibility = View.INVISIBLE
 
                     }
 
-                    if(byteArrayToHexString(gatt.services[2].characteristics[1].value)=="01"){
+                    if(byteArrayToHexString(gatt.services[2].characteristics[1].value)=="1"){
                         val markerOptions = MarkerOptions().position(LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude())).title("DANGER1")
                             .icon(BitmapDescriptorFactory.fromResource(
                                 R.drawable.warning_logo12
                             ))
-                        Toast.makeText(applicationContext,"YOU HAVE CROSS A DANGER LEVEL 1" ,Toast.LENGTH_SHORT).show()
+                        flecheDroite.visibility = View.VISIBLE
+                        flecheGauche.visibility = View.INVISIBLE
+                        Toast.makeText(applicationContext,"OBSTACLE ON YOUR LEFT" ,Toast.LENGTH_SHORT).show()
                         mMarker = mMap.addMarker(markerOptions)
                     }
 
+
                     if(byteArrayToHexString(gatt.services[2].characteristics[1].value)=="FF"){
-                        val markerOptions = MarkerOptions().position(LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude())).title("DANGER2")
+                        val markerOptions = MarkerOptions().position(LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude())).title("DANGER1")
                             .icon(BitmapDescriptorFactory.fromResource(
-                                R.drawable.warning_logo2
+                                R.drawable.warning_logo12
                             ))
-                        Toast.makeText(applicationContext,"YOU HAVE CROSS A DANGER LEVEL 2" ,Toast.LENGTH_SHORT).show()
+                        flecheGauche.visibility = View.VISIBLE
+                       flecheDroite.visibility = View.INVISIBLE
+                        Toast.makeText(applicationContext,"OBSTACLE ON YOUR RIGHT" ,Toast.LENGTH_SHORT).show()
                         mMarker = mMap.addMarker(markerOptions)
+                    }
+
+                    if(byteArrayToHexString(gatt.services[2].characteristics[1].value)=="0"){
+                        flecheGauche.visibility = View.INVISIBLE
+                        flecheDroite.visibility = View.INVISIBLE
                     }
 
                     //val BLE3 = byteArrayToHexString(gatt.services[2].characteristics[1].value);

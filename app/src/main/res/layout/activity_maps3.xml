@@ -35,5 +35,25 @@
         android:layout_marginEnd="294dp"
         app:srcCompat="@drawable/ble" />
 
+    <ImageView
+        android:id="@+id/flecheDroite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="14dp"
+        app:srcCompat="@drawable/fleche1_logo" />
+
+    <ImageView
+        android:id="@+id/flecheGauche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="15dp"
+        app:srcCompat="@drawable/fleche2_logo" />
+
 
 </RelativeLayout>
