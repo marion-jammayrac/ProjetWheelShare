@@ -3,7 +3,7 @@ Projet Master1
 
 Application imitant 'Waze' adaptée à notre prototype. 
 
-<img src="images/home.jpg" width="35%">.
+<img src="images/home.jpg" width="35%">
 <Text>
 l'application s'ouvre sur une page de connexion. </Text>
 <img src="images/pins.jpg" width="40%">.
