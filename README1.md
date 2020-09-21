@@ -3,7 +3,8 @@ Projet Master1
 
 Application imitant 'Waze' adaptée à notre prototype. 
 
-![picture|20%](images/home.jpg)
+![picture](images/home.jpg)
+<img src="https://github.com/marion-jammayrac/ProjetWheelShare/tree/master/images/home" width="48">
 ![picture](images/recherche.jpg)
 ![picture](images/mouvement.jpg)
 ![picture](images/pins.jpg)
