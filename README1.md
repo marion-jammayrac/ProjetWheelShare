@@ -9,10 +9,7 @@ Application imitant 'Waze' adaptée à notre prototype.
   border: none;
   background: none;
 }
-![picture](images/mouvement.jpg) <!-- .element height="50%" width="50%" -->
-![test image size](images/pins.jpg){:class="img-responsive"}
-![test image size](images/pins.jpg){:height="50%" width="50%"}
-![test image size](images/pins.jpg){:height="700px" width="400px"}
+![picture](images/mouvement.jpg) 
 ![picture](images/pins.jpg)
 ![picture](images/pins2.jpg)
 ![picture](images/itinéraire.jpg)
