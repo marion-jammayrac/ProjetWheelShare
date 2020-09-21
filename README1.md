@@ -1,5 +1,6 @@
 # docus
-Première version du projet android 
-Phase 1 : design des 2 pages connexion et menu 
-Phase 2 : lier les pages entre elle apres connection
-Phase 3 : Etude du cycle de vie 
+Projet Master1
+
+Application imitant 'Waze' adaptée à notre prototype. 
+
+![picture](imgage/home.jpg)
