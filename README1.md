@@ -3,7 +3,7 @@ Projet Master1
 
 Application imitant 'Waze' adaptée à notre prototype. 
 
-![picture|width=100px](images/home.jpg)
+![picture|width=10px](images/home.jpg)
 ![picture](images/recherche.jpg)
 ![picture](images/mouvement.jpg)
 ![picture](images/pins.jpg)
